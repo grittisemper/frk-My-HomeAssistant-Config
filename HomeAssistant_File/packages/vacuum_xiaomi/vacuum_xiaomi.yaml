@@ -13,83 +13,83 @@
 homeassistant:
   customize:
     vacuum.xiaomi_vacuum_cleaner:
-      friendly_name: Xiaomi שואב אבק
+      friendly_name: Xiaomi MiRo
       home-assistant: true
   
     input_boolean.disable_daily_vacuum:
-      friendly_name: רובוט - הפעל ביטול שאיבה בצורה אוטומטית
+      friendly_name: "Robot - abilita la soppressione automatica dell'aspirazione"
       icon: mdi:cancel
       home-assistant: true
   
     input_boolean.disable_dustbin_notification:
-      friendly_name: רובוט - הפעל ביטול התראות
+      friendly_name: "Robot - Disattiva le notifiche"
       icon: mdi:bell-off
       hidden: true
   
     input_boolean.daily_vacuum_first_run:
-      friendly_name: רובוט - הפעל פעולת השואב החל מיום ראשון
+      friendly_name: "Robot - Avviare l'operazione della pompa a partire da domenica"
       icon: mdi:calendar-blank
       hidden: true 
   
     automation.start_cleaning_room:
-      friendly_name: התחל בניקוי החדר
+      friendly_name: "Inizia a pulire la stanza"
       home-assistant: true
   
     automation.start_daily_vacuum:
-      friendly_name: החל שאיבה בכל יום
+      friendly_name: "Applicare il pompaggio ogni giorno"
       icon: mdi:robot-vacuum-variant
       home-assistant: true
   
     automation.send_alert_after_daily_vacuum_to_empty_the_dustbin:
-      friendly_name: שלח התראה במידה והשואב אבק מלא
+      friendly_name: "Notificare se l'aspirapolvere è pieno"
       icon: mdi:delete-empty
       home-assistant: true
   
     automation.reset_daily_vacuum_first_run_state_at_midnight:
-      friendly_name: שלח איפוס לשואב לאחר חצות
+      friendly_name: "Invia ripristinato al vuoto dopo la mezzanotte"
       icon: mdi:lock-reset
       home-assistant: true
   
     input_select.vacuum_room:
-      friendly_name: בחר אזור לניקוי
+      friendly_name: "Seleziona una zona da pulire"
       icon: mdi:broom
       hidden: true
   
     group.vacuum_a_room:
-      friendly_name: בחירת אזור לשאיבה
+      friendly_name: "Seleziona un'area di pompaggio"
       home-assistant: true 
   
     group.robot_vacuum: 
-      friendly_name: שואב אבק
+      friendly_name: "Aspirapolvere"
       home-assistant: true
   
     script.vacuum_all_home:
-      friendly_name: רובוט - לשאוב את כל הבית
+      friendly_name: "Robot - pompa tutta la casa"
       icon: mdi:home-variant
       home-assistant: true
   
     script.vacuum_corridor:
-      friendly_name: רובוט - לשאוב את הפרוזדור
+      friendly_name: "Robot - pompa fuori il corridoio"
       icon: mdi:transition
       home-assistant: true
   
     script.vacuum_dining_room:
-      friendly_name: רובוט - חדר אוכל
+      friendly_name: "Robot - sala da pranzo"
       icon: mdi:silverware
       home-assistant: true
   
     script.vacuum_dogs_area:
-      friendly_name: רובוט - לשאוב באזור הכלבים
+      friendly_name: "Robot - pompa nell'area dei cani"
       icon: mdi:cat
       home-assistant: true
   
     script.vacuum_kitchen:
-      friendly_name: רובוט - מטבח
+      friendly_name: "Robot - Cucina"
       icon: mdi:fridge
       home-assistant: true
   
     script.vacuum_living_room:
-      friendly_name: רובוט - סלון
+      friendly_name: "Robot - soggiorno"
       icon: mdi:chair-school
       home-assistant: true  
 
@@ -104,12 +104,12 @@ input_select:
     name: Choose a room to clean
     options:
       - Select Input
-      - All The House Space ## כל הבית ##      
-      - Kitchen      ## מטבח ##
-      - Living Room  ## סלון ##
-      - Dining Room  ## פינת אוכל ## 
-      - Corridor     ## פרוזדור ## 
-      - Dogs area    ## אזור הכלבים ##    
+      - All The House Space ## Tutta la casa ##      
+      - Kitchen      ## cucina ##
+      - Living Room  ## Soggiorno ##
+      - Dining Room  ## Sala da pranzo ## 
+      - Corridor     ## corridoio ## 
+      - Dogs area    ## Area cani ##    
 
 input_boolean:
   daily_vacuum_first_run:
@@ -276,7 +276,7 @@ script:
             data:
               entity_id: vacuum.xiaomi_vacuum_cleaner
               command: app_zoned_clean
-              params: [[23341,19451,32741,30201,1]] ## כל הבית ##
+              params: [[23341,19451,32741,30201,1]] ## Tutta la casa ##
 
   vacuum_bedroom:
         alias: "Vacuum Corridor"
@@ -285,7 +285,7 @@ script:
             data:
               entity_id: vacuum.xiaomi_vacuum_cleaner
               command: app_zoned_clean
-              params: [[28489,22014,30139,26214,1]] ## פרוזדור ##
+              params: [[28489,22014,30139,26214,1]] ## corridoio ##
   vacuum_dining_room:
         alias: "Vacuum Dining Room"
         sequence:
@@ -293,7 +293,7 @@ script:
             data:
               entity_id: vacuum.xiaomi_vacuum_cleaner
               command: app_zoned_clean
-              params: [[26253,21948,28503,25948,1]] ## פינת אוכל #
+              params: [[26253,21948,28503,25948,1]] ## Sala da pranzo #
   vacuum_kitchen:
         alias: "Vacuum Kitchen"
         sequence:
@@ -301,7 +301,7 @@ script:
             data:
               entity_id: vacuum.xiaomi_vacuum_cleaner
               command: app_zoned_clean
-              params: [[26115,19477,28315,22027,1]] ## מטבח ##
+              params: [[26115,19477,28315,22027,1]] ## cucina ##
   vacuum_living_room:
         alias: "Vacuum Living Room"
         sequence:
@@ -309,7 +309,7 @@ script:
             data:
               entity_id: vacuum.xiaomi_vacuum_cleaner
               command: app_zoned_clean
-              params: [[23327,21890,26077,26040,1]] ## סלון ##
+              params: [[23327,21890,26077,26040,1]] ## Soggiorno ##
   vacuum_guestroom:
         alias: "Vacuum Dםgs area"
         sequence:
@@ -317,7 +317,7 @@ script:
             data:
               entity_id: vacuum.xiaomi_vacuum_cleaner
               command: app_zoned_clean
-              params: [[28624,25960,31574,30260,1]] ## אזור הכלבים ##             
+              params: [[28624,25960,31574,30260,1]] ## Area cani ##             
 
 
 #################################################################
